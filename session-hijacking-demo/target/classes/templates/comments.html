@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Comentários - XSS Demo</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+</head>
+<body class="container mt-5">
+    <h2>Comentários (Vulnerável a XSS)</h2>
+    <form method="post" th:action="@{/comments}">
+        <div class="mb-3">
+            <label>Novo comentário:</label>
+            <input type="text" name="comment" class="form-control" placeholder="Digite algo...">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <a href="/profile" class="btn btn-secondary">Voltar</a>
+    </form>
+
+    <hr>
+    <h3>Comentários existentes:</h3>
+    <ul class="list-group">
+        <!-- th:utext renderiza o conteúdo como HTML não escapado → XSS -->
+        <li th:each="c : ${comments}" class="list-group-item" th:utext="${c}"></li>
+    </ul>
+    <div class="alert alert-warning mt-3">
+        <strong>⚠️ Demonstração:</strong> Esta página <strong>NÃO</strong> sanitiza os comentários. 
+        Um atacante pode injetar código JavaScript.
+    </div>
+</body>
+</html>

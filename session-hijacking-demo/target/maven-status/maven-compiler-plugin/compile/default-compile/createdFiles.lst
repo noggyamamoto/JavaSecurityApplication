@@ -1,0 +1,8 @@
+com\example\session\controller\AuthController.class
+com\example\session\controller\CommentController.class
+com\example\session\config\SecurityConfig.class
+com\example\session\model\User.class
+com\example\session\repository\UserRepository.class
+com\example\session\SessionApplication.class
+com\example\session\service\CustomUserDetailsService.class
+com\example\session\controller\ProfileController.class

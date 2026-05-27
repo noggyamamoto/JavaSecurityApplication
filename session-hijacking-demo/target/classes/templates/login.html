@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login - Session Hijacking Demo</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+</head>
+<body class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-3">Login</h2>
+            <!-- Exibe mensagens de erro, logout ou registro bem-sucedido -->
+            <div th:if="${param.error}" class="alert alert-danger">Usuário ou senha inválidos</div>
+            <div th:if="${param.logout}" class="alert alert-info">Você saiu.</div>
+            <div th:if="${param.registered}" class="alert alert-success">Registro realizado! Faça login.</div>
+
+            <!-- Formulário de login – Spring Security intercepta /login com POST -->
+            <form method="post" th:action="@{/login}">
+                <div class="mb-3">
+                    <label>Usuário:</label>
+                    <input type="text" name="username" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label>Senha:</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                <a href="/register" class="btn btn-link">Registrar</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

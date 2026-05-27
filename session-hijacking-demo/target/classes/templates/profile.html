@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Perfil</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+</head>
+<body class="container mt-5">
+    <h2>Bem-vindo, <span th:text="${username}"></span>!</h2>
+    <p>Sua sessão está ativa.</p>
+    <!-- Botão Admin só aparece se o usuário tiver ROLE_ADMIN -->
+    <div sec:authorize="hasRole('ADMIN')">
+        <a href="/admin" class="btn btn-warning">Painel Admin</a>
+    </div>
+    <a href="/comments" class="btn btn-secondary">Ver comentários (XSS vulnerável)</a>
+    <!-- Formulário de logout (POST) -->
+    <form method="post" th:action="@{/logout}">
+        <button type="submit" class="btn btn-danger mt-3">Logout</button>
+    </form>
+</body>
+</html>
