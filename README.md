@@ -5,6 +5,12 @@
 
 ---
 
+## 📌 Link para o vídeo no Youtube
+
+- [Assista aqui!](https://www.youtube.com/watch?v=DmQPZFSyyN0)
+
+---
+
 ## 📌 Visão Geral
 
 Este projeto implementa uma **aplicação web em Spring Boot** que expõe intencionalmente vulnerabilidades de **gestão de sessão**, para demonstrar ataques de **Session Hijacking**. O cenário mostra como um atacante pode roubar o cookie de sessão de uma vítima via **XSS armazenado** e assumir sua identidade. Em seguida, o código é fortalecido com flags de cookies seguros (`HttpOnly`, `Secure`, `SameSite`) e **regeneração do ID de sessão** no login – conforme recomendações da OWASP.
